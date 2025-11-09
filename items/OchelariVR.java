@@ -3,11 +3,11 @@ package items;
 import java.util.ArrayList;
 
 public class OchelariVR extends Gadget {
-     String tipDisplay;
-     String dimensiuneDisplay;
-     int refreshDisplay;
-     int memInt;
-     String compatibilitate;
+     private String tipDisplay;
+     private String dimensiuneDisplay;
+     private int refreshDisplay;
+     private int memInt;
+     private String compatibilitate;
 
     public OchelariVR() {
         super();
@@ -64,46 +64,5 @@ public class OchelariVR extends Gadget {
                 ", compatibilitate= " + compatibilitate + '\'' +'}';
     }
 
-    public static void cauta(ArrayList<OchelariVR> lista, int optiune, String valoare) {
-        boolean gasit = false;
-        for (OchelariVR a : lista) {
-            switch (optiune) {
-                case 1: // tipDisplay
-                    if (a.getTipDisplay().equalsIgnoreCase(valoare)) {
-                        System.out.println(a);
-                        gasit = true;
-                    }
-                    break;
-                case 2: // dimensiuneDispaly
-                    if (a.getDimensiuneDisplay().equalsIgnoreCase(valoare)) {
-                        System.out.println(a);
-                        gasit = true;
-                    }
-                    break;
-                case 3: // refreshDisplay
-                    if (a.getRefreshDisplay() == Integer.parseInt(valoare)) {
-                        System.out.println(a);
-                        gasit = true;
-                    }
-                    break;
-                case 4: // memInt
-                    if (a.getMemInt() == Integer.parseInt(valoare)) {
-                        System.out.println(a);
-                        gasit = true;
-                    }
-                    break;
-                case 5: // Compatibilitate
-                    if (a.getCompatibilitate().equalsIgnoreCase(valoare)) {
-                        System.out.println(a);
-                        gasit = true;
-                    }
-                    break;
-                default:
-                    System.out.println("Ai ales gresit bossuletz");
-            }
-        }
-        if(!gasit) {
-            System.out.println("Nu s-a gasit produsul");
-        }
-    }
 }
+
