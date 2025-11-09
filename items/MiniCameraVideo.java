@@ -1,11 +1,11 @@
 package items;
 
 public class MiniCameraVideo extends Gadget {
-    public int MemorieInterna;
-    public String Rezolutie;
-    public int MemorieExterna;
-    public int CadrePeSecunda;
-    public String Dimensiuni;
+    private int MemorieInterna;
+    private String Rezolutie;
+    private int MemorieExterna;
+    private int CadrePeSecunda;
+    private String Dimensiuni;
     public MiniCameraVideo() {
         super();
         this.MemorieInterna = 0;
@@ -79,3 +79,4 @@ public class MiniCameraVideo extends Gadget {
         return Dimensiuni;
     }
 }
+
