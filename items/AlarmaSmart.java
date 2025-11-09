@@ -1,6 +1,4 @@
 package items;
-import java.io.Serializable;
-import java.util.ArrayList;
 
 public class AlarmaSmart extends Gadget {
     private String tip;
@@ -74,5 +72,6 @@ public class AlarmaSmart extends Gadget {
                 '}';
     }
     }
+
 
 
