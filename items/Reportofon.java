@@ -1,11 +1,11 @@
 package items;
 
 public class Reportofon extends Gadget{
-    public int MemorieInterna;
-    public int MemorieExterna;
-    public String Dimensiuni;
-    public String CalitateSunet;
-    public int NumarMicrofoane;
+    private int MemorieInterna;
+    private int MemorieExterna;
+    private String Dimensiuni;
+    private String CalitateSunet;
+    private int NumarMicrofoane;
     public Reportofon(){
         super();
         this.MemorieInterna = 0;
@@ -79,3 +79,4 @@ public class Reportofon extends Gadget{
         return NumarMicrofoane;
     }
 }
+
