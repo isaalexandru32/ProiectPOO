@@ -1,13 +1,12 @@
 package items;
-import java.io.Serializable;
 
 public class Gadget implements Manageable {
-    String nume;
-    String culoare;
-    float pret;
-    int autonomie;
-    String interfata;
-    int stoc;
+    private String nume;
+    private String culoare;
+    private float pret;
+    private int autonomie;
+    private String interfata;
+    private int stoc;
 
     Gadget() {
         this.nume = "n/a";
@@ -61,27 +60,9 @@ public class Gadget implements Manageable {
     }
 
 
-    public void removeStoc(int cantitate){
-        if(cantitate <= 0){
-            System.out.println("Cantitate does not exist in rasa ta");
-        }
-        else if(stoc >= cantitate){
-        stoc -= cantitate;
-        System.out.println( cantitate + " au fost scoase stapane \n" + "Mai exista si se afla in stoc: " + stoc);
-        } else{
-            stoc = 0;
-            System.out.println("\nNu mai e suficiente in stoc: "+ stoc);
-        }
-    }
+    public void removeStoc(int cantitate){}
 
     public void updateProd(Object obj) {}
 
-    public void addStoc(int cantitate){
-        if(cantitate <= 0){
-            System.out.println("Cantitate invalida in rasa ta");
-        }
-
-        stoc += cantitate;
-        System.out.println(cantitate + " Grame de Maria Huana adaugate sub saltea. Gramaj curent: " + stoc);
-    }
+    public void addStoc(int cantitate){}
 }
