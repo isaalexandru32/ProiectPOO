@@ -1,6 +1,4 @@
 package items;
-import java.io.Serializable;
-import java.util.ArrayList;
 
 public class PrizaSmart extends Gadget  {
     private String utilizare;
@@ -74,3 +72,4 @@ public class PrizaSmart extends Gadget  {
     }
 
 }
+
