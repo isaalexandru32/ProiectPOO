@@ -2,11 +2,11 @@ package items;
 import java.util.ArrayList;
 
 public class Boxe extends Gadget {
-    boolean subwoofer;
-    int nr_difuzoare;
-    int putere_rms;
-    int frecventa_max;
-    int frecventa_min;
+    private boolean subwoofer;
+    private int nr_difuzoare;
+    private int putere_rms;
+    private int frecventa_max;
+    private int frecventa_min;
     public Boxe() {
         super();
         this.subwoofer = false;
@@ -62,4 +62,5 @@ public class Boxe extends Gadget {
    
 
 }
+
 
