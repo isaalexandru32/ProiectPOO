@@ -3,11 +3,11 @@ package items;
 import java.util.ArrayList;
 
 public class BoxaPortabila extends Gadget {
-    public int putere;
-    public int frecvMin;
-    public int frecvMax;
-    public String dimensiuni;
-    public int nrDifuzoare;
+    private int putere;
+    private int frecvMin;
+    private int frecvMax;
+    private String dimensiuni;
+    private int nrDifuzoare;
 
     public BoxaPortabila() {
         super();
@@ -46,42 +46,6 @@ public class BoxaPortabila extends Gadget {
     public int getPutere() {return putere;}
     public int getFrecvMin() {return frecvMin;}
 
-    public static void cauta(ArrayList<BoxaPortabila> lista, int optiune, String valoare) {
-        boolean gasit = false;
-        for (BoxaPortabila a : lista) {
-            switch (optiune) {
-                case 1: // putere
-                    if (a.getPutere() == Float.parseFloat(valoare)) {
-                        System.out.println(a);
-                        gasit = true;
-                    }
-                    break;
-                case 2: // nrDifuzoare
-                    if (a.getNrDifuzoare() == Integer.parseInt(valoare)) {
-                        System.out.println(a);
-                        gasit = true;
-                    }
-                    break;
-                case 3: // frecvMin
-                    if (a.getFrecvMin() == Integer.parseInt(valoare)) {
-                        System.out.println(a);
-                        gasit = true;
-                    }
-                    break;
-                case 4: // frecvMax
-                    if (a.getFrecvMax() == Integer.parseInt(valoare)) {
-                        System.out.println(a);
-                        gasit = true;
-                    }
-                    break;
-                default:
-                    System.out.println("Ai ales gresit bossuletz");
-            }
-        }
-        if(!gasit) {
-            System.out.println("Nu s-a gasit produsul");
-        }
-    }
     @Override
     public String toString() {
         return "BoxaPortabila object {" +
@@ -98,3 +62,4 @@ public class BoxaPortabila extends Gadget {
                 ", nrDifuzoare= " + nrDifuzoare + '\'' +'}';
     }
 }
+
