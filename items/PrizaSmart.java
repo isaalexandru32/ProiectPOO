@@ -70,6 +70,30 @@ public class PrizaSmart extends Gadget  {
                 ", tensiune=" + tensiune +  '\''+
                 '}';
     }
+    
+public static ArrayList<PrizaSmart> cautaAmperajTensiune(ArrayList<PrizaSmart> listaPrize, int amperaj, int tensiune) {
+        ArrayList<PrizaSmart> rezultat = new ArrayList<>();
 
+        for (PrizaSmart p : listaPrize) {
+            if (p.getAmperaj() == amperaj && p.getTensiune() == tensiune) {
+                rezultat.add(p);
+            }
+        }
+
+        return rezultat;
+    }
+    
+    public static ArrayList<PrizaSmart> cautaSmartPret(ArrayList<PrizaSmart> listaPrize, boolean smart, float pret) {
+        ArrayList<PrizaSmart> rezultat = new ArrayList<>();
+
+        for (PrizaSmart p : listaPrize) {
+            if (p.getSmart() == smart && p.getPret() == pret) {
+                rezultat.add(p);
+            }
+        }
+
+        return rezultat;
+    }
 }
+
 
