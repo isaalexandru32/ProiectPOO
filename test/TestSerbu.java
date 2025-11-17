@@ -25,24 +25,11 @@ public class TestSerbu {
         System.out.println(a2);
         System.out.println(a3);
 
-        System.out.println("\nCauta dupa amperaj si tensiune");
-        var rez1 = PrizaSmart.cautaAmperajTensiune(listaPrize, 10, 220);
-        for (PrizaSmart p : rez1) System.out.println(p);
 
-        System.out.println("\nCauta dupa smart si pret");
-        var rez2 = PrizaSmart.cautaSmartPret(listaPrize, true, 50.0f);
-        for (PrizaSmart p : rez2) System.out.println(p);
-
-        System.out.println("\nCauta dupa nivelSunet si pret");
-        var rez3 = AlarmaSmart.cautaNivelSunetPret(listaAlarme, 80, 95.0f);
-        for (AlarmaSmart a : rez3) System.out.println(a);
-
-        System.out.println("\ncauta dupa tensiune si tipEcran");
-        var rez4 = AlarmaSmart.cautaTensiuneTipEcran(listaAlarme, 5, "LCD");
-        for (AlarmaSmart a : rez4) System.out.println(a);
         }
 
     }
+
 
 
 
