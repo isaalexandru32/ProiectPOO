@@ -71,7 +71,33 @@ public class AlarmaSmart extends Gadget {
                 ", greutate=" + greutate +  '\''+
                 '}';
     }
+
+    public static ArrayList<AlarmaSmart> cautaNivelSunetPret(ArrayList<AlarmaSmart> listaAlarme, int nivelSunet, float pret) {
+    ArrayList<AlarmaSmart> rezultat = new ArrayList<>();
+
+    for (AlarmaSmart a : listaAlarme) {
+        if (a.getNivelSunet() == nivelSunet && a.getPret() == pret) {
+            rezultat.add(a);
+        }
     }
+
+    return rezultat;
+}
+
+
+public static ArrayList<AlarmaSmart> cautaTensiuneTipEcran(ArrayList<AlarmaSmart> listaPrize, int tensiune, String tipEcran) {
+    ArrayList<AlarmaSmart> rezultat = new ArrayList<>();
+
+    for (AlarmaSmart a : listaPrize) {
+        if (a.getTensiune() == tensiune && a.getTipEcran().equalsIgnoreCase(tipEcran)) {
+            rezultat.add(a);
+        }
+    }
+
+    return rezultat;
+}
+    }
+
 
 
 
