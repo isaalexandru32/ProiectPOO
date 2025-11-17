@@ -47,20 +47,39 @@ public class Boxe extends Gadget {
     @Override
     public String toString() {
         return "Gadget object {" +
-                "nume= " + nume + '\'' +
-                ", culoare= " + culoare + '\'' +
-                ", pret= " + pret + '\'' +
-                ", autonomie= " + autonomie + '\'' +
-                ", interfata= " + interfata + '\'' +
+                "nume= " + nume +
+                ", culoare= " + culoare +
+                ", pret= " + pret +
+                ", autonomie= " + autonomie +
+                ", interfata= " + interfata +
                 ", stoc= " + stoc +
-                ", subwoofer= " + subwoofer + '\'' +
-                ", nr_difuzoare= " + nr_difuzoare + '\'' +
-                ", putere_rs= " + putere_rms + '\'' +
-                ", frecventa_max= " + frecventa_max + '\'' +
-                ", frecventa_min= " + frecventa_min + '\'' +'}';
+                ", subwoofer= " + subwoofer +
+                ", nr_difuzoare= " + nr_difuzoare +
+                ", putere_rs= " + putere_rms +
+                ", frecventa_max= " + frecventa_max +
+                ", frecventa_min= " + frecventa_min +'}';
     }
-   
+
+    public static ArrayList<Boxe> cautareNrDifuzoare(ArrayList<Boxe> lista, int nr_difuzoare, int putere_rms) {
+        ArrayList<Boxe> cautare = new ArrayList<Boxe>();
+        for (Boxe boxe : lista) {
+            if (boxe.nr_difuzoare == nr_difuzoare && boxe.putere_rms == putere_rms) {
+                cautare.add(boxe);
+            }
+        }
+        return cautare;
+    }
+
+    public static ArrayList<Boxe> cautareFrecventa(ArrayList<Boxe> lista, int frecventa_max, int frecventa_min) {
+        ArrayList<Boxe> cautare = new ArrayList<Boxe>();
+        for (Boxe boxe : lista) {
+            if (boxe.frecventa_max ==frecventa_max && boxe.frecventa_min == frecventa_min) {
+                cautare.add(boxe);
+            }
+        }
+        return cautare;
+    }
+
 
 }
-
 

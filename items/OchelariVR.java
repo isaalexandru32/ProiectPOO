@@ -3,11 +3,11 @@ package items;
 import java.util.ArrayList;
 
 public class OchelariVR extends Gadget {
-     private String tipDisplay;
-     private String dimensiuneDisplay;
-     private int refreshDisplay;
-     private int memInt;
-     private String compatibilitate;
+     String tipDisplay;
+     String dimensiuneDisplay;
+     int refreshDisplay;
+     int memInt;
+     String compatibilitate;
 
     public OchelariVR() {
         super();
@@ -51,18 +51,37 @@ public class OchelariVR extends Gadget {
     @Override
     public String toString() {
         return "OchelariVR object {" +
-                "nume= " + nume + '\'' +
-                ", culoare= " + culoare + '\'' +
-                ", pret= " + pret + '\'' +
-                ", autonomie= " + autonomie + '\'' +
-                ", interfata= " + interfata + '\'' +
-                ", stoc= " + stoc + '\'' +
-                ", tipDisplay= " + tipDisplay + '\'' +
-                ", dimensiuneDisplay= " + dimensiuneDisplay + '\'' +
-                ", refreshDisplay= " + refreshDisplay + '\'' +
-                ", memInt= " + memInt + '\'' +
-                ", compatibilitate= " + compatibilitate + '\'' +'}';
+                "nume= " + nume +
+                ", culoare= " + culoare +
+                ", pret= " + pret +
+                ", autonomie= " + autonomie +
+                ", interfata= " + interfata +
+                ", stoc= " + stoc +
+                ", tipDisplay= " + tipDisplay +
+                ", dimensiuneDisplay= " + dimensiuneDisplay +
+                ", refreshDisplay= " + refreshDisplay +
+                ", memInt= " + memInt +
+                ", compatibilitate= " + compatibilitate +'}';
+    }
+
+    public static ArrayList<OchelariVR> cautaPretAuton(ArrayList<OchelariVR> lista, float optPret,int optAuton) {
+        ArrayList<OchelariVR> listamod = new ArrayList<OchelariVR>();
+        for(OchelariVR vr : lista) {
+            if (vr.pret == optPret && vr.autonomie == optAuton) {
+                listamod.add(vr);
+            }
+        }
+        return listamod;
+    }
+
+    public static ArrayList<OchelariVR> cautaRefreshMem(ArrayList<OchelariVR> lista, int refreshDisplay ,int memInt) {
+        ArrayList<OchelariVR> listamod = new ArrayList<OchelariVR>();
+        for(OchelariVR vr : lista) {
+            if (vr.refreshDisplay == refreshDisplay && vr.memInt == memInt) {
+                listamod.add(vr);
+            }
+        }
+        return listamod;
     }
 
 }
-

@@ -1,5 +1,5 @@
 package items;
-
+import java.util.ArrayList;
 public class MiniCameraVideo extends Gadget {
     private int MemorieInterna;
     private String Rezolutie;
@@ -35,16 +35,16 @@ public class MiniCameraVideo extends Gadget {
     @Override
     public String toString() {
         return "Gadget object {" +
-                "nume= " + nume + '\'' +
-                ", culoare= " + culoare + '\'' +
-                ", pret= " + pret + '\'' +
-                ", autonomie= " + autonomie + '\'' +
-                ", interfata= " + interfata + '\'' +
-                ", MemorieInterna= " + MemorieInterna + '\'' +
-                ", MemorieExterna= " + MemorieExterna + '\'' +
-                ", CadrePeSecunda= " + CadrePeSecunda + '\'' +
-                ", Dimensiuni= " + Dimensiuni + '\'' +
-                ", Rezolutie= " + Rezolutie + '\'' +
+                "nume= " + nume +
+                ", culoare= " + culoare +
+                ", pret= " + pret +
+                ", autonomie= " + autonomie +
+                ", interfata= " + interfata +
+                ", MemorieInterna= " + MemorieInterna +
+                ", MemorieExterna= " + MemorieExterna +
+                ", CadrePeSecunda= " + CadrePeSecunda +
+                ", Dimensiuni= " + Dimensiuni +
+                ", Rezolutie= " + Rezolutie +
                 ", stoc= " + stoc + '}';
     }
     public void setMemorieInterna(int MemorieInterna) {
@@ -78,5 +78,28 @@ public class MiniCameraVideo extends Gadget {
     public String getDimensiuni() {
         return Dimensiuni;
     }
-}
 
+    public static ArrayList<MiniCameraVideo> cautaDimensiuniRezolutie(ArrayList<MiniCameraVideo> listaMiniCameraVideo, String Dimensiuni, String Rezolutie) {
+        ArrayList<MiniCameraVideo> gasit = new ArrayList<>();
+
+        for (MiniCameraVideo cam : listaMiniCameraVideo) {
+            if (cam.Dimensiuni == Dimensiuni && cam.Rezolutie == Rezolutie) {
+                gasit.add(cam);
+            }
+        }
+
+        return gasit;
+    }
+
+    public static ArrayList<MiniCameraVideo> cautaCadrePeSecundaMemorieInterna(ArrayList<MiniCameraVideo> listaMiniCameraVideo, int CadrePeSecunda, int MemorieInterna) {
+        ArrayList<MiniCameraVideo> gasit = new ArrayList<>();
+
+        for (MiniCameraVideo cam : listaMiniCameraVideo) {
+            if (cam.CadrePeSecunda == CadrePeSecunda && cam.MemorieInterna == MemorieInterna) {
+                gasit.add(cam);
+            }
+        }
+
+        return gasit;
+    }
+}

@@ -1,14 +1,15 @@
 package items;
+import java.io.Serializable;
 
 public class Gadget implements Manageable {
-    private String nume;
-    private String culoare;
-    private float pret;
-    private int autonomie;
-    private String interfata;
-    private int stoc;
+    String nume;
+    String culoare;
+    float pret;
+    int autonomie;
+    String interfata;
+    int stoc;
 
-    Gadget() {
+    public Gadget() {
         this.nume = "n/a";
         this.culoare = "n/a";
         this.pret = 0.0f;
@@ -16,7 +17,7 @@ public class Gadget implements Manageable {
         this.interfata = "n/a";
         this.stoc = 0;
     }
-    Gadget(String nume, String culoare, float pret, int autonomie, String interfata, int stoc) {
+    public Gadget(String nume, String culoare, float pret, int autonomie, String interfata, int stoc) {
         this.nume = nume;
         this.culoare = culoare;
         this.pret = pret;
@@ -24,7 +25,7 @@ public class Gadget implements Manageable {
         this.interfata = interfata;
         this.stoc = stoc;
     }
-    Gadget(Gadget gadget) {
+    public Gadget(Gadget gadget) {
         this.nume = gadget.nume;
         this.culoare = gadget.culoare;
         this.pret = gadget.pret;
@@ -51,18 +52,24 @@ public class Gadget implements Manageable {
     @Override
     public String toString() {
         return "Gadget object {" +
-                "nume= " + nume + '\'' +
-                ", culoare= " + culoare + '\'' +
-                ", pret= " + pret + '\'' +
-                ", autonomie= " + autonomie + '\'' +
-                ", interfata= " + interfata + '\'' +
+                "nume= " + nume +
+                ", culoare= " + culoare +
+                ", pret= " + pret +
+                ", autonomie= " + autonomie +
+                ", interfata= " + interfata +
                 ", stoc= " + stoc + '}';
     }
 
 
-    public void removeStoc(int cantitate){}
+    public void removeStoc(int cantitate){
+        this.stoc -= cantitate;
+    }
 
-    public void updateProd(Object obj) {}
+    public void updateProd(Object obj) {
+        System.out.println("under construction");
+    }
 
-    public void addStoc(int cantitate){}
+    public void addStoc(int cantitate){
+        this.stoc += cantitate;
+    }
 }

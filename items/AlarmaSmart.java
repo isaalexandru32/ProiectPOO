@@ -1,5 +1,7 @@
 package items;
 
+import java.util.ArrayList;
+
 public class AlarmaSmart extends Gadget {
     private String tip;
     private int nivelSunet;
@@ -58,46 +60,45 @@ public class AlarmaSmart extends Gadget {
     @Override
     public String toString() {
         return "AlarmaSmart object{" +
-                "nume='" + nume + '\'' +
-                "culoare='" + culoare + '\'' +
-                "pret='" + pret + '\'' +
-                "autonomie='" + autonomie + '\'' +
-                "interfata='" + interfata + '\'' +
-                "stoc='" + stoc + '\'' +
-                "tip='" + tip + '\'' +
-                ", nivelSunet=" + nivelSunet + '\''+
-                ", tensiune=" + tensiune +  '\''+
-                ", tipEcran='" + tipEcran + '\'' +
-                ", greutate=" + greutate +  '\''+
+                "nume='" + nume +
+                ", culoare='" + culoare +
+                ", pret='" + pret +
+                ", autonomie='" + autonomie +
+                ", interfata='" + interfata +
+                ", stoc='" + stoc +
+                ", tip='" + tip +
+                ", nivelSunet=" + nivelSunet +
+                ", tensiune=" + tensiune +
+                ", tipEcran='" + tipEcran +
+                ", greutate=" + greutate +
                 '}';
     }
 
     public static ArrayList<AlarmaSmart> cautaNivelSunetPret(ArrayList<AlarmaSmart> listaAlarme, int nivelSunet, float pret) {
-    ArrayList<AlarmaSmart> rezultat = new ArrayList<>();
+        ArrayList<AlarmaSmart> rezultat = new ArrayList<>();
 
-    for (AlarmaSmart a : listaAlarme) {
-        if (a.getNivelSunet() == nivelSunet && a.getPret() == pret) {
-            rezultat.add(a);
+        for (AlarmaSmart a : listaAlarme) {
+            if (a.getNivelSunet() == nivelSunet && a.getPret() == pret) {
+                rezultat.add(a);
+            }
         }
+
+        return rezultat;
     }
 
-    return rezultat;
-}
 
+    // Metoda tensiune tip ecran
+    public static ArrayList<AlarmaSmart> cautaTensiuneTipEcran(ArrayList<AlarmaSmart> listaPrize, int tensiune, String tipEcran) {
+        ArrayList<AlarmaSmart> rezultat = new ArrayList<>();
 
-public static ArrayList<AlarmaSmart> cautaTensiuneTipEcran(ArrayList<AlarmaSmart> listaPrize, int tensiune, String tipEcran) {
-    ArrayList<AlarmaSmart> rezultat = new ArrayList<>();
-
-    for (AlarmaSmart a : listaPrize) {
-        if (a.getTensiune() == tensiune && a.getTipEcran().equalsIgnoreCase(tipEcran)) {
-            rezultat.add(a);
+        for (AlarmaSmart a : listaPrize) {
+            if (a.getTensiune() == tensiune && a.getTipEcran().equalsIgnoreCase(tipEcran)) {
+                rezultat.add(a);
+            }
         }
-    }
 
-    return rezultat;
+        return rezultat;
+    }
 }
-    }
-
-
 
 

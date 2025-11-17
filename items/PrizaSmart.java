@@ -1,5 +1,7 @@
 package items;
 
+import java.util.ArrayList;
+
 public class PrizaSmart extends Gadget  {
     private String utilizare;
     private boolean smart;
@@ -57,21 +59,21 @@ public class PrizaSmart extends Gadget  {
     @Override
     public String toString() {
         return "PrizaSmart object{" +
-                "nume='" + nume + '\'' +
-                "culoare='" + culoare + '\'' +
-                "pret='" + pret + '\'' +
-                "autonomie='" + autonomie + '\'' +
-                "interfata='" + interfata + '\'' +
-                "stoc='" + stoc + '\'' +
-                "utilizare='" + utilizare + '\'' +
-                ", smart=" + smart +    '\''+
-                ", material='" + material + '\'' +
-                ", amperaj=" + amperaj +    '\''+
-                ", tensiune=" + tensiune +  '\''+
+                "nume='" + nume +
+                ", culoare='" + culoare +
+                ", pret='" + pret +
+                ", autonomie='" + autonomie +
+                ", interfata='" + interfata +
+                ", stoc='" + stoc +
+                ", utilizare='" + utilizare +
+                ", smart=" + smart +
+                ", material='" + material +
+                ", amperaj=" + amperaj +
+                ", tensiune=" + tensiune +
                 '}';
     }
-    
-public static ArrayList<PrizaSmart> cautaAmperajTensiune(ArrayList<PrizaSmart> listaPrize, int amperaj, int tensiune) {
+
+    public static ArrayList<PrizaSmart> cautaAmperajTensiune(ArrayList<PrizaSmart> listaPrize, int amperaj, int tensiune) {
         ArrayList<PrizaSmart> rezultat = new ArrayList<>();
 
         for (PrizaSmart p : listaPrize) {
@@ -82,7 +84,7 @@ public static ArrayList<PrizaSmart> cautaAmperajTensiune(ArrayList<PrizaSmart> l
 
         return rezultat;
     }
-    
+    //Metoda smart pret
     public static ArrayList<PrizaSmart> cautaSmartPret(ArrayList<PrizaSmart> listaPrize, boolean smart, float pret) {
         ArrayList<PrizaSmart> rezultat = new ArrayList<>();
 
@@ -94,6 +96,5 @@ public static ArrayList<PrizaSmart> cautaAmperajTensiune(ArrayList<PrizaSmart> l
 
         return rezultat;
     }
+
 }
-
-

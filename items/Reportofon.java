@@ -1,5 +1,5 @@
 package items;
-
+import java.util.ArrayList;
 public class Reportofon extends Gadget{
     private int MemorieInterna;
     private int MemorieExterna;
@@ -15,7 +15,7 @@ public class Reportofon extends Gadget{
         this.NumarMicrofoane = 0;
 
     }
-    public Reportofon(String nume,String culoare,float pret,int autonomie,String interfata,int stoc,int MemorieInterna,int MemorieExterna,int CadrePeSecunda,String Dimensiuni,int NumarMicrofoane) {
+    public Reportofon(String nume,String culoare,float pret,int autonomie,String interfata,int stoc,int MemorieInterna,int MemorieExterna,String CalitateSunet,String Dimensiuni,int NumarMicrofoane) {
         super(nume,culoare,pret,autonomie,interfata,stoc );
         this.MemorieInterna = MemorieInterna;
         this.MemorieExterna = MemorieExterna;
@@ -35,17 +35,17 @@ public class Reportofon extends Gadget{
     @Override
     public String toString() {
         return "Gadget object {" +
-                "nume= " + nume + '\'' +
-                ", culoare= " + culoare + '\'' +
-                ", pret= " + pret + '\'' +
-                ", autonomie= " + autonomie + '\'' +
-                ", interfata= " + interfata + '\'' +
-                ", stoc= " + stoc + '\'' +
-                ", MemorieInterna= " + MemorieInterna + '\'' +
-                ", MemorieExterna= " + MemorieExterna + '\'' +
-                ", NumarMicrofoane= " + NumarMicrofoane + '\'' +
-                ", CalitateSunet= " + CalitateSunet + '\'' +
-                ", Dimensiuni= " + Dimensiuni + '\'' + '}';
+                "nume= " + nume +
+                ", culoare= " + culoare +
+                ", pret= " + pret +
+                ", autonomie= " + autonomie +
+                ", interfata= " + interfata +
+                ", stoc= " + stoc +
+                ", MemorieInterna= " + MemorieInterna +
+                ", MemorieExterna= " + MemorieExterna +
+                ", NumarMicrofoane= " + NumarMicrofoane +
+                ", CalitateSunet= " + CalitateSunet +
+                ", Dimensiuni= " + Dimensiuni + '}';
 
     }
     public void setMemorieInterna(int MemorieInterna) {
@@ -72,11 +72,32 @@ public class Reportofon extends Gadget{
     public String getDimensiuni() {
         return Dimensiuni;
     }
-    public String getCalitateSunet() {
-        return CalitateSunet;
-    }
+    public String getCalitateSunet() { return CalitateSunet; }
     public int getNumarMicrofoane() {
         return NumarMicrofoane;
     }
-}
 
+    public static ArrayList<Reportofon> cautaDimensiuniMemorieExterna(ArrayList<Reportofon> listaReportofon, String Dimensiuni, int MemorieExterna) {
+        ArrayList<Reportofon> gasit = new ArrayList<>();
+
+        for (Reportofon rep : listaReportofon) {
+            if (rep.Dimensiuni == Dimensiuni && rep.MemorieExterna== MemorieExterna) {
+                gasit.add(rep);
+            }
+        }
+
+        return gasit;
+    }
+
+    public static ArrayList<Reportofon> cautaCalitateSunetMemorieInterna(ArrayList<Reportofon> listaReportofon, String CalitateSunet, int MemorieInterna) {
+        ArrayList<Reportofon> gasit = new ArrayList<>();
+
+        for (Reportofon rep : listaReportofon) {
+            if (rep.CalitateSunet == CalitateSunet && rep.MemorieInterna == MemorieInterna) {
+                gasit.add(rep);
+            }
+        }
+
+        return gasit;
+    }
+}

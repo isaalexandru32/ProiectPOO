@@ -8,12 +8,12 @@ public class Casti extends Gadget {
     private int timp_incarcare;
     private int raspuns_in_frecventa;
     public Casti() {
-       super();
-       this.microfon = false;
-       this.true_wireless = false;
-       this.tip = "";
-       this.timp_incarcare = 0;
-       this.raspuns_in_frecventa = 0;
+        super();
+        this.microfon = false;
+        this.true_wireless = false;
+        this.tip = "";
+        this.timp_incarcare = 0;
+        this.raspuns_in_frecventa = 0;
     }
     public Casti(String nume, String culoare, float pret, int autonomie, String interfata, int stoc, boolean microfon, boolean true_wireless, String tip, int timp_incarcare, int raspuns_in_frecventa) {
         super(nume, culoare, pret, autonomie, interfata, stoc);
@@ -47,19 +47,37 @@ public class Casti extends Gadget {
     @Override
     public String toString() {
         return "Casti object {" +
-                "nume= " + nume + '\'' +
-                ", culoare= " + culoare + '\'' +
-                ", pret= " + pret + '\'' +
-                ", autonomie= " + autonomie + '\'' +
-                ", interfata= " + interfata + '\'' +
+                "nume= " + nume +
+                ", culoare= " + culoare +
+                ", pret= " + pret +
+                ", autonomie= " + autonomie +
+                ", interfata= " + interfata +
                 ", stoc= " + stoc +
-                ", microfon= " + microfon + '\'' +
-                ", true_wireless= " + true_wireless + '\'' +
-                ", tip= " + tip + '\'' +
-                ", timp_incarcare= " + timp_incarcare + '\'' +
-                ", raspuns_in_frecventa= " + raspuns_in_frecventa + '\'' +'}';
+                ", microfon= " + microfon +
+                ", true_wireless= " + true_wireless +
+                ", tip= " + tip +
+                ", timp_incarcare= " + timp_incarcare +
+                ", raspuns_in_frecventa= " + raspuns_in_frecventa +'}';
 
     }
 
-}
+    public static ArrayList<Casti> cautareTrueWireless(ArrayList<Casti> lista, boolean microfon, boolean true_wireless) {
+        ArrayList<Casti> cautare = new ArrayList<Casti>();
+        for (Casti casti : lista) {
+            if(casti.microfon == microfon && casti.true_wireless == true_wireless ) {
+                cautare.add(casti);
+            }
+        }
+        return cautare;
+    }
+    public static ArrayList<Casti> cautareTimpIncarcare(ArrayList<Casti> lista, int timp_incarcare, int raspuns_in_frecventa) {
+        ArrayList<Casti> cautare = new ArrayList<Casti>();
+        for (Casti casti : lista) {
+            if(casti.timp_incarcare == timp_incarcare && casti.raspuns_in_frecventa == raspuns_in_frecventa ) {
+                cautare.add(casti);
+            }
+        }
+        return cautare;
+    }
 
+}

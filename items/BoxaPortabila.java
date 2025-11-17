@@ -3,11 +3,11 @@ package items;
 import java.util.ArrayList;
 
 public class BoxaPortabila extends Gadget {
-    private int putere;
-    private int frecvMin;
-    private int frecvMax;
-    private String dimensiuni;
-    private int nrDifuzoare;
+    public int putere;
+    public int frecvMin;
+    public int frecvMax;
+    public String dimensiuni;
+    public int nrDifuzoare;
 
     public BoxaPortabila() {
         super();
@@ -49,17 +49,37 @@ public class BoxaPortabila extends Gadget {
     @Override
     public String toString() {
         return "BoxaPortabila object {" +
-                "nume= " + nume + '\'' +
-                ", culoare= " + culoare + '\'' +
-                ", pret= " + pret + '\'' +
-                ", autonomie= " + autonomie + '\'' +
-                ", interfata= " + interfata + '\'' +
+                "nume= " + nume +
+                ", culoare= " + culoare +
+                ", pret= " + pret +
+                ", autonomie= " + autonomie +
+                ", interfata= " + interfata +
                 ", stoc= " + stoc +
-                ", putere= " + putere + '\'' +
-                ", frecvMin= " + frecvMin + '\'' +
-                ", frecvMax= " + frecvMax + '\'' +
-                ", dimensiuni= " + dimensiuni + '\'' +
-                ", nrDifuzoare= " + nrDifuzoare + '\'' +'}';
+                ", putere= " + putere +
+                ", frecvMin= " + frecvMin +
+                ", frecvMax= " + frecvMax +
+                ", dimensiuni= " + dimensiuni +
+                ", nrDifuzoare= " + nrDifuzoare + '}';
     }
-}
 
+    public static ArrayList<BoxaPortabila> cautaPretAuton(ArrayList<BoxaPortabila> lista, float optPret,int optAuton) {
+        ArrayList<BoxaPortabila> listamod = new ArrayList<BoxaPortabila>();
+        for(BoxaPortabila boxa : lista) {
+            if (boxa.pret == optPret && boxa.autonomie == optAuton) {
+                listamod.add(boxa);
+            }
+        }
+        return listamod;
+    }
+
+    public static ArrayList<BoxaPortabila> cautaPutereDifuzoare(ArrayList<BoxaPortabila> lista, int putere,int nrDifuzoare) {
+        ArrayList<BoxaPortabila> listamod = new ArrayList<BoxaPortabila>();
+        for(BoxaPortabila boxa : lista) {
+            if (boxa.putere == putere && boxa.nrDifuzoare == nrDifuzoare) {
+                listamod.add(boxa);
+            }
+        }
+        return listamod;
+    }
+
+}
