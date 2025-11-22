@@ -73,28 +73,93 @@ public class PrizaSmart extends Gadget  {
                 '}';
     }
 
-    public static ArrayList<PrizaSmart> cautaAmperajTensiune(ArrayList<PrizaSmart> listaPrize, int amperaj, int tensiune) {
+    public static ArrayList<PrizaSmart> cautaUtilizare(ArrayList<PrizaSmart> listaPrize, String valoare) {
         ArrayList<PrizaSmart> rezultat = new ArrayList<>();
 
         for (PrizaSmart p : listaPrize) {
-            if (p.getAmperaj() == amperaj && p.getTensiune() == tensiune) {
-                rezultat.add(p);
-            }
-        }
-
-        return rezultat;
-    }
-    //Metoda smart pret
-    public static ArrayList<PrizaSmart> cautaSmartPret(ArrayList<PrizaSmart> listaPrize, boolean smart, float pret) {
-        ArrayList<PrizaSmart> rezultat = new ArrayList<>();
-
-        for (PrizaSmart p : listaPrize) {
-            if (p.getSmart() == smart && p.getPret() == pret) {
-                rezultat.add(p);
+            if(p.getUtilizare().equalsIgnoreCase(valoare)) {
+              rezultat.add(p);
             }
         }
 
         return rezultat;
     }
 
+    public static ArrayList<PrizaSmart> cautaSmart(ArrayList<PrizaSmart> listaPrize, String valoare) {
+        ArrayList<PrizaSmart> rezultat = new ArrayList<>();
+
+        for (PrizaSmart p : listaPrize) {
+            if(p.getSmart() == Boolean.parseBoolean(valoare)) {
+                rezultat.add(p);
+            }
+        }
+
+        return rezultat;
+    }
+
+    public static ArrayList<PrizaSmart> cautaMaterial(ArrayList<PrizaSmart> listaPrize, String valoare) {
+        ArrayList<PrizaSmart> rezultat = new ArrayList<>();
+
+        for (PrizaSmart p : listaPrize) {
+            if(p.getMaterial().equalsIgnoreCase(valoare)) {
+                rezultat.add(p);
+            }
+        }
+
+        return rezultat;
+    }
+
+    public static ArrayList<PrizaSmart> cautaAmperaj(ArrayList<PrizaSmart> listaPrize, String valoare) {
+        ArrayList<PrizaSmart> rezultat = new ArrayList<>();
+
+        for (PrizaSmart p : listaPrize) {
+            if(p.getAmperaj() == Integer.parseInt(valoare)) {
+                rezultat.add(p);
+            }
+        }
+
+        return rezultat;
+    }
+
+    public static ArrayList<PrizaSmart> cautaTensiune(ArrayList<PrizaSmart> listaPrize, String valoare) {
+        ArrayList<PrizaSmart> rezultat = new ArrayList<>();
+
+        for (PrizaSmart p : listaPrize) {
+            if(p.getTensiune() == Integer.parseInt(valoare)) {
+                rezultat.add(p);
+            }
+        }
+
+        return rezultat;
+    }
+
+    public static ArrayList<PrizaSmart> cautaPret(ArrayList<PrizaSmart> listaPrize, String valoare) {
+        ArrayList<PrizaSmart> rezultat = new ArrayList<>();
+
+        for (PrizaSmart p : listaPrize) {
+            if(p.getPret() == Float.parseFloat(valoare)) {
+                rezultat.add(p);
+            }
+        }
+
+        return rezultat;
+    }
+
+
+    public static ArrayList<PrizaSmart> cautaPrizaSmart(ArrayList<PrizaSmart> listaPrize, int optiune, String valoare) {
+
+        switch(optiune){
+            case 1: return cautaUtilizare(listaPrize, valoare);
+            case 2: return cautaSmart(listaPrize, valoare);
+            case 3: return cautaMaterial(listaPrize, valoare);
+            case 4: return cautaAmperaj(listaPrize, valoare);
+            case 5: return cautaTensiune(listaPrize, valoare);
+            case 6: return cautaPret(listaPrize, valoare);
+
+            default:
+                System.out.println("Optiune invalida!");
+                return new ArrayList<>();
+        }
+    }
 }
+
