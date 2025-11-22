@@ -74,31 +74,83 @@ public class AlarmaSmart extends Gadget {
                 '}';
     }
 
-    public static ArrayList<AlarmaSmart> cautaNivelSunetPret(ArrayList<AlarmaSmart> listaAlarme, int nivelSunet, float pret) {
+   public static ArrayList<AlarmaSmart> cautaTip(ArrayList<AlarmaSmart> listaAlarme, String valoare) {
         ArrayList<AlarmaSmart> rezultat = new ArrayList<>();
-
         for (AlarmaSmart a : listaAlarme) {
-            if (a.getNivelSunet() == nivelSunet && a.getPret() == pret) {
+            if (a.getTip().equalsIgnoreCase(valoare)){
                 rezultat.add(a);
             }
         }
+        return rezultat;
+    }
 
+    public static ArrayList<AlarmaSmart> cautaNivelSunet(ArrayList<AlarmaSmart> listaAlarme, String valoare) {
+        ArrayList<AlarmaSmart> rezultat = new ArrayList<>();
+        for (AlarmaSmart a : listaAlarme) {
+            if (a.getNivelSunet() == Integer.parseInt(valoare)){
+                rezultat.add(a);
+            }
+        }
+        return rezultat;
+    }
+
+    public static ArrayList<AlarmaSmart> cautaTensiune(ArrayList<AlarmaSmart> listaAlarme,  String valoare) {
+        ArrayList<AlarmaSmart> rezultat = new ArrayList<>();
+        for (AlarmaSmart a : listaAlarme) {
+            if (a.getTensiune() == Integer.parseInt(valoare)){
+                rezultat.add(a);
+            }
+        }
+        return rezultat;
+    }
+
+    public static ArrayList<AlarmaSmart> cautaTipEcran(ArrayList<AlarmaSmart> listaAlarme,  String valoare) {
+        ArrayList<AlarmaSmart> rezultat = new ArrayList<>();
+        for (AlarmaSmart a : listaAlarme) {
+            if (a.getTipEcran().equalsIgnoreCase(valoare)){
+                rezultat.add(a);
+            }
+        }
+        return rezultat;
+    }
+
+    public static ArrayList<AlarmaSmart> cautaGreutate(ArrayList<AlarmaSmart> listaAlarme,  String valoare) {
+        ArrayList<AlarmaSmart> rezultat = new ArrayList<>();
+        for (AlarmaSmart a : listaAlarme) {
+            if (a.getGreutate() == Integer.parseInt(valoare)){
+                rezultat.add(a);
+            }
+        }
+        return rezultat;
+    }
+
+    public static ArrayList<AlarmaSmart> cautaPret(ArrayList<AlarmaSmart> listaAlarme,  String valoare) {
+        ArrayList<AlarmaSmart> rezultat = new ArrayList<>();
+        for (AlarmaSmart a : listaAlarme) {
+            if (a.getPret() == Float.parseFloat(valoare)){
+                rezultat.add(a);
+            }
+        }
         return rezultat;
     }
 
 
-    // Metoda tensiune tip ecran
-    public static ArrayList<AlarmaSmart> cautaTensiuneTipEcran(ArrayList<AlarmaSmart> listaPrize, int tensiune, String tipEcran) {
-        ArrayList<AlarmaSmart> rezultat = new ArrayList<>();
+    public static ArrayList<AlarmaSmart> cautaAlarmaSmart(ArrayList<AlarmaSmart> listaAlarme, int optiune, String valoare){
 
-        for (AlarmaSmart a : listaPrize) {
-            if (a.getTensiune() == tensiune && a.getTipEcran().equalsIgnoreCase(tipEcran)) {
-                rezultat.add(a);
-            }
+        switch(optiune){
+            case 1: return cautaTip(listaAlarme, valoare);
+            case 2: return cautaNivelSunet(listaAlarme, valoare);
+            case 3: return cautaTensiune(listaAlarme, valoare);
+            case 4: return cautaTipEcran(listaAlarme, valoare);
+            case 5: return cautaGreutate(listaAlarme, valoare);
+            case 6: return cautaPret(listaAlarme, valoare);
+
+            default:
+                System.out.println("Optiune invalida!");
+                return new ArrayList<>();
         }
-
-        return rezultat;
     }
 }
+
 
 
