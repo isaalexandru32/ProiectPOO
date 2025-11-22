@@ -1,30 +1,45 @@
 package app;
-
+import java.util.Scanner;
 import items.*;
 import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
         ArrayList<PrizaSmart> listaPrize = InitListe.initPrizeSmart();      //SERBU
-        for(PrizaSmart ps : listaPrize) System.out.println(ps.toString());
+        for(PrizaSmart ps : listaPrize) System.out.println(ps);
         ArrayList<AlarmaSmart> listaAlarme = InitListe.initAlarmeSmart();
-        for(AlarmaSmart als : listaAlarme) System.out.println(als.toString());
+        for(AlarmaSmart als : listaAlarme) System.out.println(als);
 
-        System.out.println("\nCauta dupa amperaj si tensiune");
-        var rez1 = PrizaSmart.cautaAmperajTensiune(listaPrize, 10, 220);
-        for (PrizaSmart p : rez1) System.out.println(p);
+        System.out.println("\n Utilizare");
+        var r1 = PrizaSmart.cautaUtilizare(listaPrize, "Casa");
+        for (PrizaSmart p : r1) System.out.println(p);
 
-        System.out.println("\nCauta dupa smart si pret");
-        var rez2 = PrizaSmart.cautaSmartPret(listaPrize, true, 50.0f);
-        for (PrizaSmart p : rez2) System.out.println(p);
+        System.out.println("\nSmart");
+        var r2 = PrizaSmart.cautaSmart(listaPrize, "true");
+        for (PrizaSmart p : r2) System.out.println(p);
 
-        System.out.println("\nCauta dupa nivelSunet si pret");
-        var rez3 = AlarmaSmart.cautaNivelSunetPret(listaAlarme, 80, 95.0f);
-        for (AlarmaSmart a : rez3) System.out.println(a);
+        System.out.println("\nMaterial");
+        var r3 = PrizaSmart.cautaMaterial(listaPrize, "Plastic");
+        for (PrizaSmart p : r3) System.out.println(p);
 
-        System.out.println("\ncauta dupa tensiune si tipEcran\n");
-        var rez4 = AlarmaSmart.cautaTensiuneTipEcran(listaAlarme, 5, "LCD");
-        for (AlarmaSmart a : rez4) System.out.println(a);
+        System.out.println("\nAmperaj");
+        var r4 = PrizaSmart.cautaAmperaj(listaPrize, "10");
+        for (PrizaSmart p : r4) System.out.println(p);
+
+        System.out.println("\nTensiune");
+        var r5 = PrizaSmart.cautaTensiune(listaPrize, "220");
+        for (PrizaSmart p : r5) System.out.println(p);
+
+        System.out.println("\nPret");
+        var r6 = PrizaSmart.cautaPret(listaPrize, "50.0");
+        for (PrizaSmart p : r6) System.out.println(p);
+
+        System.out.println("\n1-Utilizare 2-Smart 3-Material 4-Amperaj 5-Tensiune 6-Pret");
+        int optiune = input.nextInt();
+        System.out.println("Introduceti valoarea dorita: ");
+        String valoare = input.next();
 
 
         ArrayList<OchelariVR> listaOchelariVR = InitListe.initOchelariVR();      //ISAIA
@@ -87,3 +102,4 @@ public class Main {
 
     }
 }
+
