@@ -1,8 +1,9 @@
 package items;
-
+import java.io.*;
 import java.util.ArrayList;
 
-public class PrizaSmart extends Gadget  {
+public class PrizaSmart extends Gadget implements Serializable {
+    private static final long serialVersionUID = 129348938L;
     private String utilizare;
     private boolean smart;
     private String material;
@@ -183,5 +184,6 @@ public class PrizaSmart extends Gadget  {
         }
     }
 }
+
 
 
