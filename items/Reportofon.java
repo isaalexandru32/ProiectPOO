@@ -160,5 +160,26 @@ public class Reportofon extends Gadget{
                 return new ArrayList<>();
         }
     }
+     public static void scrieFisierReportofon(ArrayList<Reportofon> listaReportofon, String numeFisier) {
+        try{
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(numeFisier));
+            oos.writeObject(listaReportofon);
+            System.out.println("S-a scris");
+            oos.close();
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static ArrayList<Reportofon> citesteReportofonFisier(String numeFisier){
+        try{
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(numeFisier));
+            return (ArrayList<Reportofon>) ois.readObject();
+        } catch(Exception e){
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
 }
+
 
