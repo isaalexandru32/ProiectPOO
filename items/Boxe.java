@@ -15,11 +15,11 @@ public class Boxe extends Gadget {
         this.frecventa_max = 0;
         this.frecventa_min = 0;
     }
-    public Boxe(String nume, String culoare, float pret, int autonomie, String interfata, int stoc, boolean subwoofer, int nr_difuzoare, int putere_max, int frecventa_max, int frecventa_min) {
+    public Boxe(String nume, String culoare, float pret, int autonomie, String interfata, int stoc, boolean subwoofer, int nr_difuzoare, int putere_rms, int frecventa_max, int frecventa_min) {
         super(nume, culoare, pret, autonomie, interfata, stoc);
         this.subwoofer = subwoofer;
         this.nr_difuzoare = nr_difuzoare;
-        this.putere_rms = putere_max;
+        this.putere_rms = putere_rms;
         this.frecventa_max = frecventa_max;
         this.frecventa_min = frecventa_min;
     }
@@ -55,31 +55,88 @@ public class Boxe extends Gadget {
                 ", stoc= " + stoc +
                 ", subwoofer= " + subwoofer +
                 ", nr_difuzoare= " + nr_difuzoare +
-                ", putere_rs= " + putere_rms +
+                ", putere_rms= " + putere_rms +
                 ", frecventa_max= " + frecventa_max +
                 ", frecventa_min= " + frecventa_min +'}';
     }
 
-    public static ArrayList<Boxe> cautareNrDifuzoare(ArrayList<Boxe> lista, int nr_difuzoare, int putere_rms) {
-        ArrayList<Boxe> cautare = new ArrayList<Boxe>();
-        for (Boxe boxe : lista) {
-            if (boxe.nr_difuzoare == nr_difuzoare && boxe.putere_rms == putere_rms) {
-                cautare.add(boxe);
+    public static ArrayList<Boxe> cautaSubwoofer(ArrayList<Boxe> listaBoxe, String valoare) {
+        ArrayList<Boxe> rezultat = new ArrayList<>();
+        boolean cautaSubwoofer = Boolean.parseBoolean(valoare);
+        for (Boxe a : listaBoxe) {
+            if (a.getSubwoofer() == cautaSubwoofer) {
+                rezultat.add(a);
             }
         }
-        return cautare;
+        return rezultat;
     }
 
-    public static ArrayList<Boxe> cautareFrecventa(ArrayList<Boxe> lista, int frecventa_max, int frecventa_min) {
-        ArrayList<Boxe> cautare = new ArrayList<Boxe>();
-        for (Boxe boxe : lista) {
-            if (boxe.frecventa_max ==frecventa_max && boxe.frecventa_min == frecventa_min) {
-                cautare.add(boxe);
+    public static ArrayList<Boxe> cautaNrDifuzoare(ArrayList<Boxe> listaBoxe, String valoare) {
+        ArrayList<Boxe> rezultat = new ArrayList<>();
+        for (Boxe a : listaBoxe) {
+            if (a.getNr_difuzoare() == Integer.parseInt(valoare)){
+                rezultat.add(a);
             }
         }
-        return cautare;
+        return rezultat;
     }
 
 
+    public static ArrayList<Boxe> cautaPutereRms(ArrayList<Boxe> listaBoxe,  String valoare) {
+        ArrayList<Boxe> rezultat = new ArrayList<>();
+        for (Boxe a : listaBoxe) {
+            if (a.getPutere_rms() == Integer.parseInt(valoare)){
+                rezultat.add(a);
+            }
+        }
+        return rezultat;
+    }
+
+    public static ArrayList<Boxe> cautaFrecventaMax(ArrayList<Boxe> listaBoxe,  String valoare) {
+        ArrayList<Boxe> rezultat = new ArrayList<>();
+        for (Boxe a : listaBoxe) {
+            if (a.getFrecventa_max() == Integer.parseInt(valoare)){
+                rezultat.add(a);
+            }
+        }
+        return rezultat;
+    }
+
+    public static ArrayList<Boxe> cautaFrecventaMin(ArrayList<Boxe> listaBoxe,  String valoare) {
+        ArrayList<Boxe> rezultat = new ArrayList<>();
+        for (Boxe a : listaBoxe) {
+            if (a.getFrecventa_min() == Integer.parseInt(valoare)){
+                rezultat.add(a);
+            }
+        }
+        return rezultat;
+    }
+
+    public static ArrayList<Boxe> cautaPret(ArrayList<Boxe> listaBoxe,  String valoare) {
+        ArrayList<Boxe> rezultat = new ArrayList<>();
+        for (Boxe a : listaBoxe) {
+            if (a.getPret() == Float.parseFloat(valoare)){
+                rezultat.add(a);
+            }
+        }
+        return rezultat;
+    }
+
+
+    public static ArrayList<Boxe> cautaBoxe(ArrayList<Boxe> listaBoxe, int optiune, String valoare){
+
+        switch(optiune){
+            case 1: return cautaSubwoofer(listaBoxe, valoare);
+            case 2: return cautaNrDifuzoare(listaBoxe, valoare);
+            case 3: return cautaPutereRms(listaBoxe, valoare);
+            case 4: return cautaFrecventaMax(listaBoxe, valoare);
+            case 5: return cautaFrecventaMin(listaBoxe, valoare);
+            case 6: return cautaPret(listaBoxe, valoare);
+
+            default:
+                System.out.println("Optiune invalida!");
+                return new ArrayList<>();
+        }
+    }
 }
 
