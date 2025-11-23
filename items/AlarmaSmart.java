@@ -151,10 +151,10 @@ public class AlarmaSmart extends Gadget {
         }
     }
 
-       public static void scrieFisierPrize(ArrayList<PrizaSmart> listaPrize, String numeFisier) {
+  public static void scrieFisierAlarme(ArrayList<AlarmaSmart> listaAlarme, String numeFisier) {
         try{
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(numeFisier));
-            oos.writeObject(listaPrize);
+            oos.writeObject(listaAlarme);
             System.out.println("S-a scris");
             oos.close();
         } catch(Exception e){
@@ -162,16 +162,17 @@ public class AlarmaSmart extends Gadget {
         }
     }
 
-    public static ArrayList<PrizaSmart> citestePrizeFisier(String numeFisier){
+    public static ArrayList<AlarmaSmart> cistesteAlarmeFisier(String numefisier){
         try{
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(numeFisier));
-            return (ArrayList<PrizaSmart>) ois.readObject();
-        } catch(Exception e){
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(numefisier));
+            return  (ArrayList<AlarmaSmart>) ois.readObject();
+        }catch(Exception e){
             e.printStackTrace();
             return new ArrayList<>();
         }
     }
 }
+
 
 
 
