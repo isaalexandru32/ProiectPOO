@@ -3,14 +3,17 @@ import java.util.Scanner;
 import items.*;
 import java.util.ArrayList;
 
+import static items.AlarmaSmart.cautaAlarmaSmart;
+import static items.PrizaSmart.cautaPrizaSmart;
+
 public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        ArrayList<PrizaSmart> listaPrize = InitListe.initPrizeSmart();      //SERBU
-        for(PrizaSmart ps : listaPrize) System.out.println(ps);
+ArrayList<PrizaSmart> listaPrize = InitListe.initPrizeSmart();      //SERBU
+        for (PrizaSmart ps : listaPrize) System.out.println(ps);
         ArrayList<AlarmaSmart> listaAlarme = InitListe.initAlarmeSmart();
-        for(AlarmaSmart als : listaAlarme) System.out.println(als);
+        for (AlarmaSmart als : listaAlarme) System.out.println(als);
 
         System.out.println("\n Utilizare");
         var r1 = PrizaSmart.cautaUtilizare(listaPrize, "Casa");
@@ -40,6 +43,9 @@ public class Main {
         int optiune = input.nextInt();
         System.out.println("Introduceti valoarea dorita: ");
         String valoare = input.next();
+        ArrayList<PrizaSmart> rezultate = cautaPrizaSmart(listaPrize, optiune, valoare);
+
+        for(PrizaSmart p : rezultate) System.out.println(p);
 
 
         ArrayList<OchelariVR> listaOchelariVR = InitListe.initOchelariVR();      //ISAIA
@@ -102,4 +108,5 @@ public class Main {
 
     }
 }
+
 
