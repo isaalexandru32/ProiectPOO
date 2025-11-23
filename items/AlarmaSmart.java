@@ -1,8 +1,9 @@
 package items;
-
+import java.io.*;
 import java.util.ArrayList;
 
-public class AlarmaSmart extends Gadget {
+public class AlarmaSmart extends Gadget implements Serializable {
+    private static final long serialVersionUID = 129348938L;
     private String tip;
     private int nivelSunet;
     private int tensiune;
@@ -172,6 +173,7 @@ public class AlarmaSmart extends Gadget {
         }
     }
 }
+
 
 
 
