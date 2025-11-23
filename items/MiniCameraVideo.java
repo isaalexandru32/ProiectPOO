@@ -164,5 +164,26 @@ public class MiniCameraVideo extends Gadget {
                 return new ArrayList<>();
         }
     }
+    public static void scrieFisierMiniCameraVideo(ArrayList<MiniCameraVideo> listaMiniCameraVideo, String numeFisier) {
+        try{
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(numeFisier));
+            oos.writeObject(listaMiniCameraVideo);
+            System.out.println("S-a scris");
+            oos.close();
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static ArrayList<MiniCameraVideo> cistesteMiniCameraVideoFisier(String numefisier){
+        try{
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(numefisier));
+            return  (ArrayList<MiniCameraVideo>) ois.readObject();
+        }catch(Exception e){
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
 }
+
 
