@@ -79,27 +79,90 @@ public class MiniCameraVideo extends Gadget {
         return Dimensiuni;
     }
 
-    public static ArrayList<MiniCameraVideo> cautaDimensiuniRezolutie(ArrayList<MiniCameraVideo> listaMiniCameraVideo, String Dimensiuni, String Rezolutie) {
-        ArrayList<MiniCameraVideo> gasit = new ArrayList<>();
-
-        for (MiniCameraVideo cam : listaMiniCameraVideo) {
-            if (cam.Dimensiuni == Dimensiuni && cam.Rezolutie == Rezolutie) {
-                gasit.add(cam);
+     public static ArrayList<MiniCameraVideo> cautaMemorieInterna(ArrayList<MiniCameraVideo> listaMiniCameraVideo, String valoare) {
+        ArrayList<MiniCameraVideo> rezultat = new ArrayList<>();
+        for (MiniCameraVideo a : listaMiniCameraVideo) {
+            if (a.getMemorieInterna()== Integer.parseInt(valoare)){
+                rezultat.add(a);
             }
         }
-
-        return gasit;
+        return rezultat;
     }
 
-    public static ArrayList<MiniCameraVideo> cautaCadrePeSecundaMemorieInterna(ArrayList<MiniCameraVideo> listaMiniCameraVideo, int CadrePeSecunda, int MemorieInterna) {
-        ArrayList<MiniCameraVideo> gasit = new ArrayList<>();
-
-        for (MiniCameraVideo cam : listaMiniCameraVideo) {
-            if (cam.CadrePeSecunda == CadrePeSecunda && cam.MemorieInterna == MemorieInterna) {
-                gasit.add(cam);
+    public static ArrayList<MiniCameraVideo> cautaRezolutie(ArrayList<MiniCameraVideo> listaMiniCameraVideo, String valoare) {
+        ArrayList<MiniCameraVideo> rezultat = new ArrayList<>();
+        for (MiniCameraVideo a : listaMiniCameraVideo) {
+            if (a.getRezolutie().equalsIgnoreCase(valoare)){
+                rezultat.add(a);
             }
         }
+        return rezultat;
+    }
 
-        return gasit;
+    public static ArrayList<MiniCameraVideo> cautaMemorieExterna(ArrayList<MiniCameraVideo> listaMiniCameraVideo, String valoare) {
+        ArrayList<MiniCameraVideo> rezultat = new ArrayList<>();
+        for (MiniCameraVideo a : listaMiniCameraVideo) {
+            if (a.getMemorieExterna() == Integer.parseInt(valoare)){
+                rezultat.add(a);
+            }
+        }
+        return rezultat;
+    }
+
+    public static ArrayList<MiniCameraVideo> cautaCadrePeSecunda(ArrayList<MiniCameraVideo> listaMiniCameraVideo, String valoare) {
+        ArrayList<MiniCameraVideo> rezultat = new ArrayList<>();
+        for (MiniCameraVideo a : listaMiniCameraVideo) {
+            if (a.getCadrePeSecunda()== Integer.parseInt(valoare)){
+                rezultat.add(a);
+            }
+        }
+        return rezultat;
+    }
+
+    public static ArrayList<MiniCameraVideo> cautaDimensiuni(ArrayList<MiniCameraVideo> listaMiniCameraVideo, String valoare) {
+        ArrayList<MiniCameraVideo> rezultat = new ArrayList<>();
+        for (MiniCameraVideo a : listaMiniCameraVideo) {
+            if (a.getDimensiuni() .equalsIgnoreCase(valoare)){
+                rezultat.add(a);
+            }
+        }
+        return rezultat;
+    }
+
+    public static ArrayList<MiniCameraVideo> cautaPret(ArrayList<MiniCameraVideo> listaMiniCameraVideos, String valoare) {
+        ArrayList<MiniCameraVideo> rezultat = new ArrayList<>();
+        for (MiniCameraVideo a : listaMiniCameraVideos) {
+            if (a.getPret() == Float.parseFloat(valoare)){
+                rezultat.add(a);
+            }
+        }
+        return rezultat;
+    }
+    public static ArrayList<MiniCameraVideo> cautaNume(ArrayList<MiniCameraVideo> listaMiniCameraVideo,  String valoare) {
+        ArrayList<MiniCameraVideo> rezultat = new ArrayList<>();
+        for (MiniCameraVideo a : listaMiniCameraVideo) {
+            if (a.getNume().equalsIgnoreCase(valoare)){
+                rezultat.add(a);
+            }
+        }
+        return rezultat;
+    }
+
+    public static ArrayList<MiniCameraVideo> cautaMiniCameraVideo(ArrayList<MiniCameraVideo> listaMiniCameraVideo, int optiune, String valoare){
+
+        switch(optiune){
+            case 1: return cautaMemorieInterna(listaMiniCameraVideo, valoare);
+            case 2: return cautaRezolutie(listaMiniCameraVideo, valoare);
+            case 3: return cautaMemorieExterna(listaMiniCameraVideo, valoare);
+            case 4: return cautaCadrePeSecunda(listaMiniCameraVideo, valoare);
+            case 5: return cautaDimensiuni(listaMiniCameraVideo, valoare);
+            case 6: return cautaPret(listaMiniCameraVideo, valoare);
+            case 7: return cautaNume(listaMiniCameraVideo, valoare);
+
+            default:
+                System.out.println("Optiune invalida!");
+                return new ArrayList<>();
+        }
     }
 }
+
