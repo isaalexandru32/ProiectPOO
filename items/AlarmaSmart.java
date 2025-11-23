@@ -150,7 +150,29 @@ public class AlarmaSmart extends Gadget {
                 return new ArrayList<>();
         }
     }
+
+       public static void scrieFisierPrize(ArrayList<PrizaSmart> listaPrize, String numeFisier) {
+        try{
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(numeFisier));
+            oos.writeObject(listaPrize);
+            System.out.println("S-a scris");
+            oos.close();
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static ArrayList<PrizaSmart> citestePrizeFisier(String numeFisier){
+        try{
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(numeFisier));
+            return (ArrayList<PrizaSmart>) ois.readObject();
+        } catch(Exception e){
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
 }
+
 
 
 
