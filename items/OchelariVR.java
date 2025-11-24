@@ -1,8 +1,13 @@
 package items;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class OchelariVR extends Gadget {
+public class OchelariVR extends Gadget implements Serializable {
      String tipDisplay;
      String dimensiuneDisplay;
      int refreshDisplay;
@@ -64,24 +69,102 @@ public class OchelariVR extends Gadget {
                 ", compatibilitate= " + compatibilitate +'}';
     }
 
-    public static ArrayList<OchelariVR> cautaPretAuton(ArrayList<OchelariVR> lista, float optPret,int optAuton) {
-        ArrayList<OchelariVR> listamod = new ArrayList<OchelariVR>();
-        for(OchelariVR vr : lista) {
-            if (vr.pret == optPret && vr.autonomie == optAuton) {
-                listamod.add(vr);
+     public static ArrayList<OchelariVR> cautaTipDisplay(ArrayList<OchelariVR> listaOchelariVR, String valoare) {
+        ArrayList<OchelariVR> rezultat = new ArrayList<>();
+        for (OchelariVR a : listaOchelariVR) {
+            if (a.getTipDisplay().equalsIgnoreCase(valoare)){
+                rezultat.add(a);
             }
         }
-        return listamod;
+        return rezultat;
     }
 
-    public static ArrayList<OchelariVR> cautaRefreshMem(ArrayList<OchelariVR> lista, int refreshDisplay ,int memInt) {
-        ArrayList<OchelariVR> listamod = new ArrayList<OchelariVR>();
-        for(OchelariVR vr : lista) {
-            if (vr.refreshDisplay == refreshDisplay && vr.memInt == memInt) {
-                listamod.add(vr);
+    public static ArrayList<OchelariVR> cautaDimensiuneDisplay(ArrayList<OchelariVR> listaOchelariVR, String valoare) {
+        ArrayList<OchelariVR> rezultat = new ArrayList<>();
+        for (OchelariVR a : listaOchelariVR) {
+            if (a.getDimensiuneDisplay().equalsIgnoreCase(valoare)){
+                rezultat.add(a);
             }
         }
-        return listamod;
+        return rezultat;
+    }
+
+    public static ArrayList<OchelariVR> cautaRefreshDisplay(ArrayList<OchelariVR> listaOchelariVR,  String valoare) {
+        ArrayList<OchelariVR> rezultat = new ArrayList<>();
+        for (OchelariVR a : listaOchelariVR) {
+            if (a.getRefreshDisplay() == Integer.parseInt(valoare)){
+                rezultat.add(a);
+            }
+        }
+        return rezultat;
+    }
+
+    public static ArrayList<OchelariVR> cautaMemInt(ArrayList<OchelariVR> listaOchelariVR,  String valoare) {
+        ArrayList<OchelariVR> rezultat = new ArrayList<>();
+        for (OchelariVR a : listaOchelariVR) {
+            if (a.getMemInt() == Integer.parseInt(valoare)){
+                rezultat.add(a);
+            }
+        }
+        return rezultat;
+    }
+
+    public static ArrayList<OchelariVR> cautaCompatibilitate(ArrayList<OchelariVR> listaOchelariVR,  String valoare) {
+        ArrayList<OchelariVR> rezultat = new ArrayList<>();
+        for (OchelariVR a : listaOchelariVR) {
+            if (a.getCompatibilitate().equalsIgnoreCase(valoare)){
+                rezultat.add(a);
+            }
+        }
+        return rezultat;
+    }
+
+    public static ArrayList<OchelariVR> cautaPret(ArrayList<OchelariVR> listaOchelariVR,  String valoare) {
+        ArrayList<OchelariVR> rezultat = new ArrayList<>();
+        for (OchelariVR a : listaOchelariVR) {
+            if (a.getPret() <= Float.parseFloat(valoare)+100 && a.getPret() >= Float.parseFloat(valoare)-100){
+                rezultat.add(a);
+            }
+        }
+        return rezultat;
+    }
+
+
+    public static ArrayList<OchelariVR> cautaOchelariVR(ArrayList<OchelariVR> listaOchelariVR, int optiune, String valoare){
+
+        switch(optiune){
+            case 1: return cautaTipDisplay(listaOchelariVR, valoare);
+            case 2: return cautaDimensiuneDisplay(listaOchelariVR, valoare);
+            case 3: return cautaRefreshDisplay(listaOchelariVR, valoare);
+            case 4: return cautaMemInt(listaOchelariVR, valoare);
+            case 5: return cautaCompatibilitate(listaOchelariVR, valoare);
+            case 6: return cautaPret(listaOchelariVR, valoare);
+
+            default:
+                System.out.println("Optiune invalida!");
+                return new ArrayList<>();
+        }
+    }
+    
+    public static void scrieFisierOVR(ArrayList<OchelariVR> listaOVR, String numeFisier) {
+        try{
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(numeFisier));
+            oos.writeObject(listaOVR);
+            System.out.println("S-a scris");
+            oos.close();
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static ArrayList<OchelariVR> citesteOVRFisier(String numeFisier){
+        try{
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(numeFisier));
+            return (ArrayList<OchelariVR>) ois.readObject();
+        } catch(Exception e){
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
     }
 
 }

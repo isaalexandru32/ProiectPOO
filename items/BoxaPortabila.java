@@ -1,8 +1,13 @@
 package items;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class BoxaPortabila extends Gadget {
+public class BoxaPortabila extends Gadget implements Serializable {
     public int putere;
     public int frecvMin;
     public int frecvMax;
@@ -62,24 +67,102 @@ public class BoxaPortabila extends Gadget {
                 ", nrDifuzoare= " + nrDifuzoare + '}';
     }
 
-    public static ArrayList<BoxaPortabila> cautaPretAuton(ArrayList<BoxaPortabila> lista, float optPret,int optAuton) {
-        ArrayList<BoxaPortabila> listamod = new ArrayList<BoxaPortabila>();
-        for(BoxaPortabila boxa : lista) {
-            if (boxa.pret == optPret && boxa.autonomie == optAuton) {
-                listamod.add(boxa);
+     public static ArrayList<BoxaPortabila> cautaPutere(ArrayList<BoxaPortabila> listaBP, String valoare) {
+        ArrayList<BoxaPortabila> rezultat = new ArrayList<>();
+        for (BoxaPortabila a : listaBP) {
+            if (a.getPutere() == Integer.parseInt(valoare)){
+                rezultat.add(a);
             }
         }
-        return listamod;
+        return rezultat;
     }
 
-    public static ArrayList<BoxaPortabila> cautaPutereDifuzoare(ArrayList<BoxaPortabila> lista, int putere,int nrDifuzoare) {
-        ArrayList<BoxaPortabila> listamod = new ArrayList<BoxaPortabila>();
-        for(BoxaPortabila boxa : lista) {
-            if (boxa.putere == putere && boxa.nrDifuzoare == nrDifuzoare) {
-                listamod.add(boxa);
+    public static ArrayList<BoxaPortabila> cautaFrecvMin(ArrayList<BoxaPortabila> listaBP, String valoare) {
+        ArrayList<BoxaPortabila> rezultat = new ArrayList<>();
+        for (BoxaPortabila a : listaBP) {
+            if (a.getFrecvMin() == Integer.parseInt(valoare)){
+                rezultat.add(a);
             }
         }
-        return listamod;
+        return rezultat;
+    }
+
+    public static ArrayList<BoxaPortabila> cautaFrecvMax(ArrayList<BoxaPortabila> listaBP,  String valoare) {
+        ArrayList<BoxaPortabila> rezultat = new ArrayList<>();
+        for (BoxaPortabila a : listaBP) {
+            if (a.getFrecvMax() == Integer.parseInt(valoare)){
+                rezultat.add(a);
+            }
+        }
+        return rezultat;
+    }
+
+    public static ArrayList<BoxaPortabila> cautaDimensiuni(ArrayList<BoxaPortabila> listaBP,  String valoare) {
+        ArrayList<BoxaPortabila> rezultat = new ArrayList<>();
+        for (BoxaPortabila a : listaBP) {
+            if (a.getDimensiuni().equalsIgnoreCase(valoare)){
+                rezultat.add(a);
+            }
+        }
+        return rezultat;
+    }
+
+    public static ArrayList<BoxaPortabila> cautaNrDifuzoare(ArrayList<BoxaPortabila> listaBP,  String valoare) {
+        ArrayList<BoxaPortabila> rezultat = new ArrayList<>();
+        for (BoxaPortabila a : listaBP) {
+            if (a.getNrDifuzoare() == Integer.parseInt(valoare)){
+                rezultat.add(a);
+            }
+        }
+        return rezultat;
+    }
+
+    public static ArrayList<BoxaPortabila> cautaPret(ArrayList<BoxaPortabila> listaBP,  String valoare) {
+        ArrayList<BoxaPortabila> rezultat = new ArrayList<>();
+        for (BoxaPortabila a : listaBP) {
+            if (a.getPret() <= Float.parseFloat(valoare)+100 && a.getPret() >= Float.parseFloat(valoare)-100){
+                rezultat.add(a);
+            }
+        }
+        return rezultat;
+    }
+
+
+    public static ArrayList<BoxaPortabila> cautaBoxePortabile(ArrayList<BoxaPortabila> listaBP, int optiune, String valoare){
+
+        switch(optiune){
+            case 1: return cautaPutere(listaBP, valoare);
+            case 2: return cautaFrecvMin(listaBP, valoare);
+            case 3: return cautaFrecvMax(listaBP, valoare);
+            case 4: return cautaDimensiuni(listaBP, valoare);
+            case 5: return cautaNrDifuzoare(listaBP, valoare);
+            case 6: return cautaPret(listaBP, valoare);
+
+            default:
+                System.out.println("Optiune invalida!");
+                return new ArrayList<>();
+        }
+    }
+    
+    public static void scrieFisierBP(ArrayList<BoxaPortabila> listaBP, String numeFisier) {
+        try{
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(numeFisier));
+            oos.writeObject(listaBP);
+            System.out.println("S-a scris");
+            oos.close();
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static ArrayList<BoxaPortabila> citesteBPFisier(String numeFisier){
+        try{
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(numeFisier));
+            return (ArrayList<BoxaPortabila>) ois.readObject();
+        } catch(Exception e){
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
     }
 
 }
