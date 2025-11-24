@@ -138,5 +138,28 @@ public class Boxe extends Gadget {
                 return new ArrayList<>();
         }
     }
+
+    public static void scrieFisierBoxe(ArrayList<Boxe> listaBoxe, String numeFisier) {
+        try{
+            ObjectOutputStream oos = new ObjectOutputStream( new FileOutputStream(numeFisier));
+            oos.writeObject(listaBoxe);
+            System.out.println("Fisier boxe: " + numeFisier);
+            oos.close();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    public static ArrayList<Casti> citesteBoxeFisier(String numeFisier){
+        try{
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(numeFisier));
+            return (ArrayList<Casti>) ois.readObject();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
 }
+
 
