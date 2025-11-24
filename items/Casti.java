@@ -140,4 +140,27 @@ public class Casti extends Gadget {
                 return new ArrayList<>();
         }
     }
+
+     public static void scrieFisierCasti(ArrayList<Casti> listaCasti, String numeFisier) {
+        try{
+            ObjectOutputStream oos = new ObjectOutputStream( new FileOutputStream(numeFisier));
+            oos.writeObject(listaCasti);
+            System.out.println("Fisier casti: " + numeFisier);
+            oos.close();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    public static ArrayList<Casti> citesteCastiFisier(String numeFisier){
+        try{
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(numeFisier));
+            return (ArrayList<Casti>) ois.readObject();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
 }
+
