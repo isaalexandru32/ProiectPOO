@@ -143,7 +143,7 @@ public class InitListe {
         ArrayList<Reportofon> reportofoane = new ArrayList<>();
 
         reportofoane.add(new Reportofon("Zoom H1n", "Negru", 89.99f, 10, "USB-C", 50,
-                16, 128, "7.1 x 3.9 x 1.3 cm", "Studio", 2));
+                16, 128, "12.5 x 5.0 x 2.5 cm", "Studio", 2));
 
         reportofoane.add(new Reportofon("Tascam DR-40X", "Alb", 169.99f, 15, "USB", 30,
                 32, 256, "18.6 x 7.1 x 3.8 cm", "Profesional", 4));
@@ -167,7 +167,7 @@ public class InitListe {
                 0, 0, "7.1 x 4.3 x 2.8 cm", "Studio", 1));
 
         reportofoane.add(new Reportofon("Blue Yeti Nano", "Alb", 99.99f, 0, "USB", 75,
-                0, 0, "12.0 x 8.0 x 3.1 cm", "Studio", 2));
+                0, 0, "12.5 x 5.0 x 2.5 cm", "Studio", 2));
 
         reportofoane.add(new Reportofon("Saramonic Blink 500", "Negru", 129.99f, 6, "USB-C", 35,
                 8, 128, "12.5 x 5.0 x 2.5 cm", "Profesional", 2));
@@ -180,7 +180,7 @@ public class InitListe {
 
         // Adăugarea a 10 elemente în ArrayList
         miniCamereVideo.add(new MiniCameraVideo("GoPro HERO11", "Negru", 399.99f, 90, "USB-C", 60,
-                32, "5.3K", 256, 240, "7.1 x 5.0 x 3.3 cm"));
+                32, "5.3K", 256, 120, "7.1 x 5.0 x 3.3 cm"));
 
         miniCamereVideo.add(new MiniCameraVideo("DJI Osmo Action 3", "Gri", 329.99f, 160, "USB-C", 45,
                 16, "4K", 128, 240, "7.0 x 4.4 x 3.3 cm"));
@@ -201,7 +201,7 @@ public class InitListe {
                 0, "4K", 64, 120, "5.8 x 3.4 x 2.1 cm"));
 
         miniCamereVideo.add(new MiniCameraVideo("Apeman A100", "Albastru", 69.99f, 70, "Micro USB", 200,
-                16, "4K", 32, 60, "6.0 x 4.1 x 3.0 cm"));
+                16, "4K", 32, 60, "6.0 x 4.1 x 3.2 cm"));
 
         miniCamereVideo.add(new MiniCameraVideo("DBPOWER EX5000", "Rosu", 49.99f, 60, "Micro USB", 180,
                 8, "1080p", 32, 30, "5.9 x 4.1 x 3.1 cm"));
