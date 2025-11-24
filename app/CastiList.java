@@ -10,10 +10,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-/**
- *
- * @author gi260
- */
+
 public class CastiList extends javax.swing.JFrame implements Runnable, ListSelectionListener{
     ArrayList<Casti> listaCasti;
     ArrayList<Casti> listaCMOD;

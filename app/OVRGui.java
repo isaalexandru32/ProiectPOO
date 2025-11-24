@@ -4,10 +4,7 @@
  */
 package app;
 import items.OchelariVR;
-/**
- *
- * @author gi260
- */
+
 public class OVRGui extends javax.swing.JFrame implements Runnable {
 
     /**

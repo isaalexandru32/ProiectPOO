@@ -6,10 +6,7 @@ package app;
 
 import items.BoxaPortabila;
 
-/**
- *
- * @author gi260
- */
+
 public class BPGui extends javax.swing.JFrame implements Runnable{
 
     /**

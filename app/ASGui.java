@@ -6,10 +6,7 @@ package app;
 
 import items.AlarmaSmart;
 
-/**
- *
- * @author gi260
- */
+
 public class ASGui extends javax.swing.JFrame implements Runnable{
     AlarmaSmart alarma;
     /**

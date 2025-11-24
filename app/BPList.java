@@ -11,10 +11,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.event.ListSelectionEvent;
 
 
-/**
- *
- * @author gi260
- */
+
 public class BPList extends javax.swing.JFrame implements Runnable, ListSelectionListener{
 
     /**

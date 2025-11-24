@@ -6,10 +6,7 @@ package app;
 
 import items.Casti;
 
-/**
- *
- * @author gi260
- */
+
 public class CastiGui extends javax.swing.JFrame implements Runnable {
     Casti casti;
     /**

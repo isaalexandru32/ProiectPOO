@@ -10,10 +10,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-/**
- *
- * @author gi260
- */
+
 public class PSList extends javax.swing.JFrame implements Runnable, ListSelectionListener {
     ArrayList<PrizaSmart> listaPrize;
     ArrayList<PrizaSmart> listaPSMOD;

@@ -6,10 +6,7 @@ package app;
 
 import items.PrizaSmart;
 
-/**
- *
- * @author gi260
- */
+
 public class PSGui extends javax.swing.JFrame implements Runnable {
     PrizaSmart priza;
     /**

@@ -4,20 +4,20 @@
  */
 package app;
 
-import items.Boxe;
+import items.MiniCameraVideo;
 
 
-public class BoxeGui extends javax.swing.JFrame implements Runnable {
-    private Boxe boxa;
+public class MCVGui extends javax.swing.JFrame implements Runnable{
+    MiniCameraVideo camera;
     /**
-     * Creates new form BoxeGui
+     * Creates new form MCVGui
      */
-    public BoxeGui() {
+    public MCVGui() {
         initComponents();
     }
     
-    public BoxeGui(Boxe boxa) {
-        this.boxa = boxa;
+    public MCVGui(MiniCameraVideo camera) {
+        this.camera = camera;
         initComponents();
     }
     
@@ -73,64 +73,63 @@ public class BoxeGui extends javax.swing.JFrame implements Runnable {
 
         jLabel1.setText("Nume");
 
-        jTextPane1.setText(this.boxa.getNume()
-        );
+        jTextPane1.setText(camera.getNume());
         jScrollPane1.setViewportView(jTextPane1);
 
         jLabel2.setText("Culoare");
 
-        jTextPane2.setText(this.boxa.getCuloare());
+        jTextPane2.setText(camera.getCuloare()
+        );
         jScrollPane2.setViewportView(jTextPane2);
 
         jLabel3.setText("Pret");
 
-        jTextPane3.setText(Float.toString(this.boxa.getPret()));
+        jTextPane3.setText(Float.toString(camera.getPret()));
         jScrollPane3.setViewportView(jTextPane3);
 
-        jLabel4.setText("Autonomie");
+        jLabel4.setText("Interfata");
 
-        jTextPane4.setText(Integer.toString(this.boxa.getAutonomie())
+        jTextPane4.setText(camera.getInterfata()
         );
         jScrollPane4.setViewportView(jTextPane4);
 
-        jLabel5.setText("Interfata");
+        jLabel5.setText("Autonomie");
 
-        jTextPane5.setText(this.boxa.getInterfata());
+        jTextPane5.setText(Integer.toString(camera.getAutonomie())
+        );
         jScrollPane5.setViewportView(jTextPane5);
 
         jLabel6.setText("Stoc");
 
-        jTextPane6.setText(Integer.toString(this.boxa.getStoc())
+        jTextPane6.setText(Integer.toString(camera.getStoc())
         );
         jScrollPane6.setViewportView(jTextPane6);
 
-        jLabel7.setText("Subwoofer");
+        jLabel7.setText("Memorie Interna");
 
-        jTextPane7.setText(Boolean.toString(this.boxa.getSubwoofer())
+        jTextPane7.setText(Integer.toString(camera.getMemorieInterna())
         );
         jScrollPane7.setViewportView(jTextPane7);
 
-        jLabel8.setText("Numar Difuzoare");
+        jLabel8.setText("Rezolutie");
 
-        jTextPane8.setText(Integer.toString(this.boxa.getNr_difuzoare())
+        jTextPane8.setText(camera.getRezolutie()
         );
         jScrollPane8.setViewportView(jTextPane8);
 
-        jLabel9.setText("Putere RMS");
+        jLabel9.setText("Memorie Externa");
 
-        jTextPane9.setText(Integer.toString(this.boxa.getPutere_rms())
-        );
+        jTextPane9.setText(Integer.toString(camera.getMemorieExterna()));
         jScrollPane9.setViewportView(jTextPane9);
 
-        jLabel10.setText("Frecventa Max");
+        jLabel10.setText("Cadre pe secunda");
 
-        jTextPane10.setText(Integer.toString(this.boxa.getFrecventa_max())
-        );
+        jTextPane10.setText(Integer.toString(camera.getCadrePeSecunda()));
         jScrollPane10.setViewportView(jTextPane10);
 
-        jLabel11.setText("Frecventa Min");
+        jLabel11.setText("Dimensiuni");
 
-        jTextPane11.setText(Integer.toString(this.boxa.getFrecventa_min())
+        jTextPane11.setText(camera.getDimensiuni()
         );
         jScrollPane11.setViewportView(jTextPane11);
 
@@ -140,39 +139,34 @@ public class BoxeGui extends javax.swing.JFrame implements Runnable {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6))
-                                .addGap(63, 63, 63))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane2))
-                                .addGap(16, 16, 16)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(42, 42, 42)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11)
+                            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10)
+                            .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9)
+                            .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8)
-                            .addComponent(jLabel7)
-                            .addComponent(jScrollPane7)
-                            .addComponent(jScrollPane8)
-                            .addComponent(jScrollPane9)
-                            .addComponent(jScrollPane10)
-                            .addComponent(jScrollPane11)))
-                    .addComponent(jScrollPane1))
-                .addContainerGap(105, Short.MAX_VALUE))
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))))
+                .addContainerGap(173, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,7 +191,7 @@ public class BoxeGui extends javax.swing.JFrame implements Runnable {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(jLabel9))
@@ -221,7 +215,7 @@ public class BoxeGui extends javax.swing.JFrame implements Runnable {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(107, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -244,20 +238,20 @@ public class BoxeGui extends javax.swing.JFrame implements Runnable {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BoxeGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MCVGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BoxeGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MCVGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BoxeGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MCVGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BoxeGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MCVGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BoxeGui().setVisible(true);
+                new MCVGui().setVisible(true);
             }
         });
     }
